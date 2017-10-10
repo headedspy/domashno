@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -22,3 +23,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+=======
+# zdr-svqt
+about time
+>>>>>>> 45a4c8485eefa0eaf9a1eb6ae0978a2fc2aaed9d
