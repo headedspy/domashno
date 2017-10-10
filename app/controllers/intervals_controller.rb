@@ -19,8 +19,8 @@ class IntervalsController < ApplicationController
 		
 		CSV.foreach(csv_file_path) do |row|
 			30.times do |i|
-				a = arr_of_arrs[crow + i][0].to_i
-				nsum += a
+				a = arr_of_arrs[crow + i][0]
+				nsum += a.to_i
 			end
 
 			sum = nsum if nsum > sum
