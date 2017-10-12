@@ -19,15 +19,15 @@ class LinRegressionsController < ApplicationController
 		sumyi = yi.inject(0, :+).to_f
 		sumxi = xi.inject(0, :+).to_f
 		xi2 = []
-		xiyi = xi.zip(yi).map{|pair| pair.reduce(&:*)}
+		xiyi = xi.zip(yi).map{|x, y| x*y}
 		sumxiyi = xiyi.inject(0, :+).to_f
 		xi.each do |x|
 			xi2.push(x**2)
 		end
 		sumxi2 = xi2.inject(0, :+)
 
-		b1 = (rows.to_f*sumxiyi)/sumxi*sumyi - sumxi**2 + rows.to_f*sumxi2
-		b0 = (sumxi/rows.to_f)*b1 + sumyi/rows.to_f
+		b1 = (rows*sumxiyi - sumxi*sumyi)/(rows*sumxi2 - (sumxi)**2)
+		b0 = (sumyi - sumxi*b1)/rows
 
 
 		str = b1.ceil(6).to_s + ", " + b0.ceil(6).to_s
