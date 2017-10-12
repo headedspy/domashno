@@ -12,6 +12,8 @@ class IntervalsController < ApplicationController
 		
 		crow = 0
 		
+		a = 0	
+	
 		csv_file = params[:csv_file]
 		csv_file_path = csv_file.path
 
@@ -25,6 +27,9 @@ class IntervalsController < ApplicationController
 
 			sum = nsum if nsum > sum
 			crow += 1
+			if crow == arr_of_arrs.length - 30
+				break
+			end
 		end
 		render plain: sum.ceil(2)
 	end
