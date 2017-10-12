@@ -14,7 +14,7 @@ class SumsController < ApplicationController
 		CSV.foreach(csv_file_path) do |row|
 			sum += row[0].to_f
 		end
-
+		render status: :success
 		render plain: sum.ceil(2)
 	end
 end
