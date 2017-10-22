@@ -13,8 +13,12 @@ class IntervalsController < ApplicationController
 		csv_file_path = csv_file.path
 		arr_of_arrs = CSV.read(csv_file_path)
 		values = Array.new
-
+		f = true
 		CSV.foreach(csv_file_path) do |row|
+			if f == true
+				f = false
+				next
+			end
 			values.push(row[0].to_f)
 		end
 

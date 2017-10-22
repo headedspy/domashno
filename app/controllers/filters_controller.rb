@@ -11,7 +11,12 @@ class FiltersController < ApplicationController
 		csv_file = params[:csv_file]
 		csv_file_path = csv_file.path		
 		arr = Array.new
+		f = true
 		CSV.foreach(csv_file_path) do |row|
+			if f == true
+				f = false
+				next
+			end
 			if row[2].to_i.odd?
 				arr.push(row[1].to_f)
 			end
