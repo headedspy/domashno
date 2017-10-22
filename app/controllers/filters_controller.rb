@@ -10,13 +10,17 @@ class FiltersController < ApplicationController
 		sum = 0
 		csv_file = params[:csv_file]
 		csv_file_path = csv_file.path		
-
+		arr = Array.new
 		CSV.foreach(csv_file_path) do |row|
 			if row[2].to_i.odd?
-				sum += row[0].to_f
+				arr.push(row[1].to_f)
 			end
 		end
-		render plain: sum.ceil(2)
+
+		arr.each do |i|
+			sum += i
+		end
+		render plain: sum
 	end
 
 

@@ -1,5 +1,9 @@
 require 'csv'
 
+def number?(object)
+	true if Float(object) rescue false
+end
+
 class LinRegressionsController < ApplicationController
 	protect_from_forgery unless: -> { request.format.json? }
 	def index
@@ -12,9 +16,11 @@ class LinRegressionsController < ApplicationController
 		xi = []
 		yi = []
 		CSV.foreach(csv_file_name) do |row|
-			xi.push(rows.to_f)
-			yi.push(row[0].to_f)
-			rows += 1
+			if number?(row[0])
+				xi.push(rows.to_f)
+				yi.push(row[0].to_f)
+				rows += 1
+			end
 		end
 		sumyi = yi.inject(0, :+).to_f
 		sumxi = xi.inject(0, :+).to_f
