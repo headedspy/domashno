@@ -18,6 +18,6 @@ class SumsController < ApplicationController
 		arr.each do |i|
 			sum += i
 		end
-		render plain: arr#sum.ceil(2)
+		render plain: sum.ceil(2)
 	end
 end

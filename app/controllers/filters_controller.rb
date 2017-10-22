@@ -20,7 +20,7 @@ class FiltersController < ApplicationController
 		arr.each do |i|
 			sum += i
 		end
-		render plain: sum
+		render plain: sum.ceil(2)
 	end
 
 
