@@ -27,7 +27,7 @@ class IntervalsController < ApplicationController
 				sum = nsum
 			end
 		end
-		render plain: sum.ceil(2)
+		render plain: sum.round(2)
 	end
 
 end

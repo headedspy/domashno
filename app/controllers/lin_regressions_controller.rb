@@ -36,7 +36,7 @@ class LinRegressionsController < ApplicationController
 		b0 = (sumyi - sumxi*b1)/rows
 
 
-		str = b1.ceil(6).to_s + ", " + b0.ceil(6).to_s
+		str = b1.round(6).to_s + ", " + b0.round(6).to_s
 
 		render plain: str
 	end
